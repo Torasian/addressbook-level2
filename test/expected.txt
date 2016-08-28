@@ -7,8 +7,8 @@
 || ===================================================
 || Enter command: || [Command entered:  sfdfd]
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
-|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...
-|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney
+|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/BLOCK, STREET, UNIT, POSTAL_CODE  [t/TAG]...
+|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25, 126839 t/friends t/owesMoney
 || delete: Deletes the person identified by the index number used in the last person listing.
 || Parameters: INDEX
 || Example: delete 1
@@ -49,26 +49,26 @@
 || Enter command: || [Command entered:  add wrong args wrong args]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
-|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...
-|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney
+|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/BLOCK, STREET, UNIT, POSTAL_CODE  [t/TAG]...
+|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25, 126839 t/friends t/owesMoney
 || ===================================================
 || Enter command: || [Command entered:  add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
-|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...
-|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney
+|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/BLOCK, STREET, UNIT, POSTAL_CODE  [t/TAG]...
+|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25, 126839 t/friends t/owesMoney
 || ===================================================
 || Enter command: || [Command entered:  add Valid Name p/12345 valid@email.butNoPrefix a/valid, address]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
-|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...
-|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney
+|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/BLOCK, STREET, UNIT, POSTAL_CODE  [t/TAG]...
+|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25, 126839 t/friends t/owesMoney
 || ===================================================
 || Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address]
 || Invalid command format! 
 || add: Adds a person to the address book. Contact details can be marked private by prepending 'p' to the prefix.
-|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/ADDRESS  [t/TAG]...
-|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney
+|| Parameters: NAME [p]p/PHONE [p]e/EMAIL [p]a/BLOCK, STREET, UNIT, POSTAL_CODE  [t/TAG]...
+|| Example: add John Doe p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25, 126839 t/friends t/owesMoney
 || ===================================================
 || Enter command: || [Command entered:  add Valid Name p/12345 e/valid@email.butNoTagPrefix a/valid, address t/goodTag noPrefixTag]
 || Tags names should be alphanumeric
@@ -85,11 +85,11 @@
 || Enter command: || [Command entered:  add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag]
 || Tags names should be alphanumeric
 || ===================================================
-|| Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street]
-|| New person added: Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
+|| Enter command: || [Command entered:  add Adam Brown p/111111 e/adam@gmail.com a/111, alpha street, unit 1, 123564]
+|| New person added: Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street, unit 1, 123564 Tags: 
 || ===================================================
 || Enter command: || [Command entered:  list]
-|| 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street Tags: 
+|| 	1. Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street, unit 1, 123564 Tags: 
 || 
 || 1 persons listed!
 || ===================================================
