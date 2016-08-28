@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -23,7 +24,16 @@ public class StorageFile {
     /* Note: Note the use of nested classes below.
      * More info https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
      */
-
+    
+    /**
+     * Signals that the given file path does not exist/ has been deleted.
+     */
+    public static class FileDeletedException extends StorageOperationException {
+        public FileDeletedException(String message){
+            super(message);
+        }
+    }
+    
     /**
      * Signals that the given file path does not fulfill the storage filepath constraints.
      */
@@ -46,6 +56,7 @@ public class StorageFile {
     private final JAXBContext jaxbContext;
 
     public final Path path;
+    private static boolean isStorageFileCreated = false;
 
     /**
      * @throws InvalidStorageFilePathException if the default path is invalid
@@ -69,6 +80,8 @@ public class StorageFile {
             throw new InvalidStorageFilePathException("Storage file should end with '.txt'");
         }
     }
+    
+    
 
     /**
      * Returns true if the given path is acceptable as a storage file.
@@ -138,6 +151,12 @@ public class StorageFile {
             throw new StorageOperationException("Error parsing file data format");
         } catch (IllegalValueException ive) {
             throw new StorageOperationException("File contains illegal data values; data type constraints not met");
+        }
+    }
+    
+    public void checkFileExists() throws FileDeletedException{
+        if(!Files.exists(path)){
+            throw new FileDeletedException("File has been deleted");
         }
     }
 

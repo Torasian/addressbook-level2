@@ -80,6 +80,13 @@ public class Main {
     private void runCommandLoopUntilExitCommand() {
         Command command;
         do {
+            try{
+                storage.checkFileExists();
+            } catch (FileDeletedException e){
+                ui.showToUser(e.getMessage());
+                exit();
+            }
+            
             String userCommandText = ui.getUserCommand();
             command = new Parser().parseCommand(userCommandText);
             CommandResult result = executeCommand(command);
@@ -105,6 +112,7 @@ public class Main {
      */
     private CommandResult executeCommand(Command command)  {
         try {
+            
             command.setData(addressBook, lastShownList);
             CommandResult result = command.execute();
             storage.save(addressBook);
