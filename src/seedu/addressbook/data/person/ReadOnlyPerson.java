@@ -8,7 +8,8 @@ import seedu.addressbook.data.tag.UniqueTagList;
  * Implementations should guarantee: details are present and not null, field values are validated.
  */
 public interface ReadOnlyPerson {
-
+	
+	int getSequenceNumber();
     Name getName();
     Phone getPhone();
     Email getEmail();
